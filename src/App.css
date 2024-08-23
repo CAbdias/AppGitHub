@@ -1,0 +1,183 @@
+/* Definições de variáveis CSS para cores e tamanhos */
+:root {
+  --cor-fundo: #210c01; /* Cor de fundo de fallback */
+  --cor-principal: #400868; /* Cor roxa para o fundo do contêiner */
+  --cor-secundaria: #ffffff; /* Cor branca para o texto e fundo do contêiner */
+  --cor-texto-principal: #ffffff; /* Cor branca para o texto principal */
+  --cor-texto-secundario: #f0f0f0; /* Cor branca suave para texto secundário */
+  --cor-botao: #4CAF50;
+  --cor-botao-hover: #45a049;
+  --cor-borda: #dddddd;
+  --cor-input-fundo: #000000; /* Cor preta para o fundo dos campos de entrada */
+  --cor-input-texto: #ffffff; /* Cor branca para o texto dos campos de entrada */
+  --cor-input-borda: #333333; /* Cor cinza escuro para a borda dos campos de entrada */
+  --cor-bola-hover: #ffffff; /* Cor da imagem ao passar o mouse */
+  --raio-borda: 6px;
+  --espaco-paddings: 16px;
+  --espaco-margens: 16px;
+  --largura-maxima: 360px;
+  --largura-form: 50%;
+  --altura-conteudo: 300px;
+  --tamanho-titulo: 1.6em;
+  --tamanho-texto: 1em;
+  --imagem-fundo: url('https://github.blog/wp-content/uploads/2022/11/Brand-Campaign-02.jpg?w=1024&resize=1024%2C576'); /* Caminho para a imagem de fundo */
+}
+
+/* Reset de margens e preenchimentos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Estilização do contêiner geral com imagem de fundo */
+.container-geral {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: var(--imagem-fundo);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: var(--cor-fundo); /* Cor de fundo de fallback */
+}
+
+/* Estilização do contêiner principal com fundo roxo */
+.container {
+  width: 80%;
+  max-width: 800px;
+  height: auto;
+  background: var(--cor-principal);
+  border-radius: var(--raio-borda);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: var(--espaco-paddings);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Estilização do cabeçalho com texto branco */
+.header-top {
+  background-color: var(--cor-principal);
+  color: var(--cor-texto-principal);
+  padding: var(--espaco-paddings);
+  border-radius: var(--raio-borda);
+  text-align: center;
+  width: 100%;
+  margin-bottom: var(--espaco-margens);
+  font-weight: bold;
+}
+
+/* Estilização do elemento main */
+main {
+  display: flex;
+  width: 100%;
+  gap: var(--espaco-margens);
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Estilização do formulário com fundo preto nos campos */
+.form {
+  display: flex;
+  flex-direction: column;
+  width: var(--largura-form);
+  margin-right: var(--espaco-margens);
+}
+
+.form h1 {
+  font-size: var(--tamanho-titulo);
+  color: var(--cor-texto-principal);
+  margin-bottom: var(--espaco-margens);
+}
+
+.form input {
+  padding: var(--espaco-paddings);
+  font-size: var(--tamanho-texto);
+  border: 1px solid var(--cor-input-borda);
+  border-radius: var(--raio-borda);
+  background-color: var(--cor-input-fundo);
+  color: var(--cor-input-texto);
+  width: 100%;
+  max-width: var(--largura-maxima);
+  margin-bottom: var(--espaco-margens);
+}
+
+.form button {
+  padding: 12px 24px;
+  font-size: var(--tamanho-texto);
+  border: none;
+  border-radius: var(--raio-borda);
+  background-color: var(--cor-botao);
+  color: var(--cor-secundaria);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form button:hover {
+  background-color: var(--cor-botao-hover);
+}
+
+/* Estilização do contêiner de conteúdo com texto branco */
+.conteudo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: var(--altura-conteudo);
+  width: var(--largura-form);
+  background-color: var(--cor-principal);
+  border-radius: var(--raio-borda);
+  padding: var(--espaco-paddings);
+}
+
+.conteudo div {
+  text-align: center;
+}
+
+.conteudo img {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  margin-bottom: var(--espaco-margens);
+  transition: transform 0.3s ease, filter 0.3s ease; /* Adiciona transição suave para o efeito de hover */
+}
+
+.conteudo img:hover {
+  transform: scale(1.1); /* Aumenta a imagem ao passar o mouse */
+  filter: brightness(1.2); /* Aumenta o brilho da imagem ao passar o mouse */
+}
+
+.conteudo h1 {
+  font-size: 1.4em;
+  color: var(--cor-texto-principal);
+  margin-bottom: var(--espaco-margens);
+}
+
+.conteudo p {
+  font-size: 1.1em;
+  color: var(--cor-texto-secundario);
+}
+
+/* Media Queries para responsividade */
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+    padding: var(--espaco-paddings);
+  }
+
+  .form, .conteudo {
+    width: 100%;
+    margin-right: 0;
+  }
+  .error-message {
+    color: red;
+    margin-top: var(--espaco-margens);
+    font-size: 1em;
+    text-align: center;
+  }
+}
